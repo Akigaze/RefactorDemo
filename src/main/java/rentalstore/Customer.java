@@ -1,11 +1,16 @@
 package rentalstore;
 
+import rentalstore.statement.Statement;
+import rentalstore.statement.TxtStatement;
+
+import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Vector;
 
 public class Customer {
     private String name;
     private Vector rentals = new Vector();
+    private Statement statement=new TxtStatement();
 
     public Customer(String name) {
         this.name = name;
@@ -20,37 +25,12 @@ public class Customer {
     }
 
     public String txtStatement(){
-        return headerString()+ bodyString()+footerString();
+        return this.statement.statement(this);
     }
 
-    private String footerString() {
-        return  "You owe " + String.valueOf(getCharge())
-                + "\nOn this rental you earned "
-                + String.valueOf(getTotalFrequentRenterPoints())
-                + " frequent renter points";
 
-    }
 
-    private String bodyString() {
-        StringBuffer info = new StringBuffer();
-        Enumeration rentals = this.rentals.elements();
-        while(rentals.hasMoreElements()){
-            Rental each = (Rental) rentals.nextElement();
-            info.append( "\t"
-                    + each.getMovie().getTitle()
-                    + ": "
-                    + String.valueOf(each.getAmount())
-                    + "\n"
-            );
-        }
-        return info.toString();
-    }
-
-    private String headerString() {
-        return "Rental Record for " + getName() + "\n";
-    }
-
-    private double getCharge(){
+    public double getCharge(){
         double totalAmount = 0;
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){
@@ -60,7 +40,7 @@ public class Customer {
         return totalAmount;
     }
 
-    private int getTotalFrequentRenterPoints(){
+    public int getTotalFrequentRenterPoints(){
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){
@@ -68,5 +48,9 @@ public class Customer {
             frequentRenterPoints += each.getFrequentRenterPoints();
         }
         return frequentRenterPoints;
+    }
+
+    public Enumeration getRentals() {
+        return this.rentals.elements();
     }
 }
