@@ -10,4 +10,9 @@ public class NewReleasePrice extends Price {
     public double getAmount(int dayRented) {
         return dayRented*3;
     }
+
+    @Override
+    public int getFrequentRenterPoints(int dayRented) {
+        return (dayRented > 1) ? 2:super.getFrequentRenterPoints(dayRented);
+    }
 }

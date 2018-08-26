@@ -1,6 +1,7 @@
 package rentalstore;
 
 public class Rental {
+
     Movie movie;
     private int dayRented;
 
