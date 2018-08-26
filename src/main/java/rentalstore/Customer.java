@@ -25,11 +25,13 @@ public class Customer {
         return name;
     }
 
-    public String txtStatement(){
-        return this.statement.statement(this);
+    public Enumeration getRentals() {
+        return this.rentals.elements();
     }
 
-
+    private void setStatement(Statement statement) {
+        this.statement=statement;
+    }
 
     public double getCharge(){
         double totalAmount = 0;
@@ -51,16 +53,15 @@ public class Customer {
         return frequentRenterPoints;
     }
 
-    public Enumeration getRentals() {
-        return this.rentals.elements();
+    public String txtStatement(){
+        setStatement(Statement.TXT);
+        return this.statement.statement(this);
     }
 
     public String htmlStatement() {
-        setStatement(new HtmlStatement());
+        setStatement(Statement.HTML);
         return statement.statement(this);
     }
 
-    private void setStatement(Statement statement) {
-        this.statement=statement;
-    }
+
 }
