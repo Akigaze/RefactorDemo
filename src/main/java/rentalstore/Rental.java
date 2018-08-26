@@ -1,7 +1,7 @@
 package rentalstore;
 
 public class Rental {
-    private Movie movie;
+    Movie movie;
     private int dayRented;
 
     public Rental(Movie movie, int dayRented) {
@@ -17,34 +17,11 @@ public class Rental {
         return dayRented;
     }
 
-    public double getAmount() {
-        double amount =0;
-        switch (getMovie().getPriceCode()){
-            case Movie.REGULAR:
-                amount += 2;
-                if(getDayRented() > 2){
-                    amount+=(getDayRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                amount+=getDayRented()*3;
-                break;
-            case Movie.CHILDRENS:
-                amount+=1.5;
-                if(getDayRented() > 3){
-                    amount += (getDayRented() -3)*1.5;
-                }
-                break;
-        }
-        return amount;
+    public double getAmount(){
+        return movie.getAmount(dayRented);
     }
 
-    public int getFrequentRenterPointsForRental() {
-        int frequentRenterPoints = 1;
-        //add bonus for a two day new release rental
-        if((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDayRented() > 1){
-            frequentRenterPoints ++;
-        }
-        return frequentRenterPoints;
+    public int getFrequentRenterPoints() {
+        return movie.getFrequentRenterPoints(dayRented);
     }
 }

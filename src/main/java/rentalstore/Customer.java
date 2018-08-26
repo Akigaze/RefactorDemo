@@ -48,7 +48,7 @@ public class Customer {
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){
             Rental each = (Rental) rentals.nextElement();
-            frequentRenterPoints += each.getFrequentRenterPointsForRental();
+            frequentRenterPoints += each.getFrequentRenterPoints();
         }
         return frequentRenterPoints;
     }
