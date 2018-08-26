@@ -3,6 +3,7 @@ package rentalstore;
 import org.junit.Assert;
 import org.junit.Test;
 import rentalstore.price.ChildrenPrice;
+import rentalstore.price.LiteraryPrice;
 import rentalstore.price.NewReleasePrice;
 import rentalstore.price.RegularPrice;
 
@@ -154,6 +155,23 @@ public class CustomerTest {
                 +"GG Bond: 6.0<br>"
                 +"<p>You owe <em>19.0</em></p>"
                 +"<p>On this rental you earned <em>7</em> frequent renter points</p>";
+        //when
+        String statement = renter.htmlStatement();
+        //then
+        Assert.assertEquals(exceptedStatement,statement);
+    }
+
+    @Test
+    public void should_print_html_statement_when_rent_a_literary_movie_for_one_day(){
+        //given
+        Movie rentedMovie =new Movie("Romeo and Juliet",new LiteraryPrice());
+        Customer renter = new Customer("Smith");
+        Rental rental = new Rental(rentedMovie,1);
+        renter.addRental(rental);
+        String exceptedStatement = "<h1>Rental Record for <em>Smith</em></h1>"
+                + "Romeo and Juliet: 6.0<br>"
+                + "<p>You owe <em>6.0</em></p>"
+                + "<p>On this rental you earned <em>1.5</em> frequent renter points</p>";
         //when
         String statement = renter.htmlStatement();
         //then
