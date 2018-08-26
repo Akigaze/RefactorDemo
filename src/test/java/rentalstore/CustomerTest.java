@@ -14,7 +14,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("A Journey to the West",new RegularPrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,1);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tA Journey to the West: 2.0\n"
                 + "You owe 2.0\n"
@@ -31,7 +31,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("A Journey to the West",new RegularPrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,4);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tA Journey to the West: 5.0\n"
                 + "You owe 5.0\n"
@@ -48,7 +48,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("Death on the Nile",new NewReleasePrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,3);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tDeath on the Nile: 9.0\n"
                 + "You owe 9.0\n"
@@ -65,7 +65,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("Peppa Pig",new ChildrenPrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,3);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tPeppa Pig: 1.5\n"
                 + "You owe 1.5\n"
@@ -82,7 +82,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("Peppa Pig",new ChildrenPrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,4);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tPeppa Pig: 3.0\n"
                 + "You owe 3.0\n"
@@ -107,11 +107,11 @@ public class CustomerTest {
         Rental rental3 = new Rental(regularMovie2,2);
         Rental rental4 = new Rental(newReleaseMovie1,2);
         Rental rental5 = new Rental(newReleaseMovie2,2);
-        renter.addRental(rental1);
-        renter.addRental(rental2);
-        renter.addRental(rental3);
-        renter.addRental(rental4);
-        renter.addRental(rental5);
+        renter.addRentalElements(rental1);
+        renter.addRentalElements(rental2);
+        renter.addRentalElements(rental3);
+        renter.addRentalElements(rental4);
+        renter.addRentalElements(rental5);
 
         String exceptedStatement = "Rental Record for Smith\n"
                 +"\tPeppa Pig: 3.0\n"
@@ -141,11 +141,11 @@ public class CustomerTest {
         Rental rental3 = new Rental(regularMovie2,2);
         Rental rental4 = new Rental(newReleaseMovie1,2);
         Rental rental5 = new Rental(newReleaseMovie2,2);
-        renter.addRental(rental1);
-        renter.addRental(rental2);
-        renter.addRental(rental3);
-        renter.addRental(rental4);
-        renter.addRental(rental5);
+        renter.addRentalElements(rental1);
+        renter.addRentalElements(rental2);
+        renter.addRentalElements(rental3);
+        renter.addRentalElements(rental4);
+        renter.addRentalElements(rental5);
 
         String exceptedStatement = "<h1>Rental Record for <em>Smith</em></h1>"
                 +"Peppa Pig: 3.0<br>"
@@ -167,7 +167,7 @@ public class CustomerTest {
         Movie rentedMovie =new Movie("Romeo and Juliet",new LiteraryPrice());
         Customer renter = new Customer("Smith");
         Rental rental = new Rental(rentedMovie,1);
-        renter.addRental(rental);
+        renter.addRentalElements(rental);
         String exceptedStatement = "<h1>Rental Record for <em>Smith</em></h1>"
                 + "Romeo and Juliet: 6.0<br>"
                 + "<p>You owe <em>6.0</em></p>"

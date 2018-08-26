@@ -10,7 +10,6 @@ public class TxtStatement extends Statement {
                 + "\nOn this rental you earned "
                 + String.valueOf(customer.getTotalFrequentRenterPoints())
                 + " frequent renter points";
-
     }
 
     protected String bodyString(Customer customer) {

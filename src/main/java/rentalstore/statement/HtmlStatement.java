@@ -24,7 +24,6 @@ public class HtmlStatement extends Statement {
         return info.toString();
     }
 
-
     protected String footerString(Customer customer) {
         return "<p>You owe <em>"
                 + String.valueOf(customer.getCharge())
@@ -32,9 +31,5 @@ public class HtmlStatement extends Statement {
                 + "<p>On this rental you earned <em>"
                 + String.valueOf(customer.getTotalFrequentRenterPoints())
                 + "</em> frequent renter points</p>";
-
     }
-
-
-
 }

@@ -1,9 +1,6 @@
 package rentalstore;
 
-import rentalstore.price.ChildrenPrice;
-import rentalstore.price.NewReleasePrice;
 import rentalstore.price.Price;
-import rentalstore.price.RegularPrice;
 
 public class Movie {
     public static final int REGULAR = 0;
@@ -14,34 +11,9 @@ public class Movie {
     private String title;
     private Price priceCode;
 
-    public Movie(String title, int code) {
-        this.title = title;
-        setPriceCode(code);
-    }
-
     public Movie(String title, Price priceCode) {
         this.title = title;
         this.priceCode=priceCode;
-    }
-
-    public int getPriceCode() {
-        return priceCode.getPriceCode();
-    }
-
-    public void setPriceCode(int code) {
-        switch (code){
-            case REGULAR:
-                this.priceCode=new RegularPrice();
-                break;
-            case NEW_RELEASE:
-                this.priceCode=new NewReleasePrice();
-                break;
-            case CHILDRENS:
-                this.priceCode=new ChildrenPrice();
-                break;
-            default:
-                throw new IllegalArgumentException("Incorrect price code");
-        }
     }
 
     public String getTitle() {
@@ -51,6 +23,7 @@ public class Movie {
     public double getAmount(int dayRented) {
         return  priceCode.getAmount(dayRented);
     }
+
     public double getFrequentRenterPoints(int dayRented) {
         return priceCode.getFrequentRenterPoints(dayRented);
     }

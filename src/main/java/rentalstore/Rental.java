@@ -2,7 +2,7 @@ package rentalstore;
 
 public class Rental {
 
-    Movie movie;
+    private Movie movie;
     private int dayRented;
 
     public Rental(Movie movie, int dayRented) {
@@ -12,10 +12,6 @@ public class Rental {
 
     public Movie getMovie() {
         return movie;
-    }
-
-    public int getDayRented() {
-        return dayRented;
     }
 
     public double getAmount(){

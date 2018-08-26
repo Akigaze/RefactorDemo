@@ -1,10 +1,7 @@
 package rentalstore;
 
-import rentalstore.statement.HtmlStatement;
 import rentalstore.statement.Statement;
 import rentalstore.statement.TxtStatement;
-
-import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -17,7 +14,7 @@ public class Customer {
         this.name = name;
     }
 
-    public void addRental(Rental arg){
+    public void addRentalElements(Rental arg){
         rentals.addElement(arg);
     }
 
