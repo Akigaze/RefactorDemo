@@ -1,24 +1,41 @@
 package rentalstore;
 
+import rentalstore.price.ChildrenPrice;
+import rentalstore.price.NewReleasePrice;
+import rentalstore.price.Price;
+import rentalstore.price.RegularPrice;
+
 public class Movie {
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     public static final int CHILDRENS = 2;
 
     private String title;
-    private int priceCode;
+    private Price priceCode;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, int code) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(code);
     }
 
     public int getPriceCode() {
-        return priceCode;
+        return priceCode.getPriceCode();
     }
 
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+    public void setPriceCode(int code) {
+        switch (code){
+            case REGULAR:
+                this.priceCode=new RegularPrice();
+                break;
+            case NEW_RELEASE:
+                this.priceCode=new NewReleasePrice();
+                break;
+            case CHILDRENS:
+                this.priceCode=new ChildrenPrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect price code");
+        }
     }
 
     public String getTitle() {
