@@ -1,5 +1,6 @@
 package rentalstore;
 
+import rentalstore.statement.HtmlStatement;
 import rentalstore.statement.Statement;
 import rentalstore.statement.TxtStatement;
 
@@ -52,5 +53,14 @@ public class Customer {
 
     public Enumeration getRentals() {
         return this.rentals.elements();
+    }
+
+    public String htmlStatement() {
+        setStatement(new HtmlStatement());
+        return statement.statement(this);
+    }
+
+    private void setStatement(Statement statement) {
+        this.statement=statement;
     }
 }

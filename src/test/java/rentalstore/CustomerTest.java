@@ -125,4 +125,38 @@ public class CustomerTest {
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
+
+    @Test
+    public void should_print_statement_in_html_format_when_rent_a_children_movie_for_4_day_and_2_regular_movie_for_2_days_and_2_new_release_movies_for_2_days(){
+        //given
+        Movie regularMovie1 =new Movie("A Journey to the West",new RegularPrice());
+        Movie regularMovie2 =new Movie("Avatar",new RegularPrice());
+        Movie newReleaseMovie1 =new Movie("Death on the Nile",new NewReleasePrice());
+        Movie newReleaseMovie2 =new Movie("GG Bond",new NewReleasePrice());
+        Movie childrenMovie =new Movie("Peppa Pig",new ChildrenPrice());
+        Customer renter = new Customer("Smith");
+        Rental rental1 = new Rental(childrenMovie,4);
+        Rental rental2 = new Rental(regularMovie1,2);
+        Rental rental3 = new Rental(regularMovie2,2);
+        Rental rental4 = new Rental(newReleaseMovie1,2);
+        Rental rental5 = new Rental(newReleaseMovie2,2);
+        renter.addRental(rental1);
+        renter.addRental(rental2);
+        renter.addRental(rental3);
+        renter.addRental(rental4);
+        renter.addRental(rental5);
+
+        String exceptedStatement = "<h1>Rental Record for <em>Smith</em></h1>"
+                +"Peppa Pig: 3.0<br>"
+                +"A Journey to the West: 2.0<br>"
+                +"Avatar: 2.0<br>"
+                +"Death on the Nile: 6.0<br>"
+                +"GG Bond: 6.0<br>"
+                +"<p>You owe <em>19.0</em></p>"
+                +"<p>On this rental you earned <em>7</em> frequent renter points</p>";
+        //when
+        String statement = renter.htmlStatement();
+        //then
+        Assert.assertEquals(exceptedStatement,statement);
+    }
 }

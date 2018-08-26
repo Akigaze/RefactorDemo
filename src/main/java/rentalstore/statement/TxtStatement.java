@@ -4,7 +4,6 @@ import rentalstore.Customer;
 import rentalstore.Rental;
 
 import java.util.Enumeration;
-
 public class TxtStatement extends Statement {
     protected String footerString(Customer customer) {
         return  "You owe " + String.valueOf(customer.getCharge())
