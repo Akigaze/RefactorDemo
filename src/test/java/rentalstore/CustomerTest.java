@@ -16,7 +16,7 @@ public class CustomerTest {
                 + "You owe 2.0\n"
                 + "On this rental you earned 1 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
@@ -33,7 +33,7 @@ public class CustomerTest {
                 + "You owe 5.0\n"
                 + "On this rental you earned 1 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
@@ -50,7 +50,7 @@ public class CustomerTest {
                 + "You owe 9.0\n"
                 + "On this rental you earned 2 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
@@ -67,7 +67,7 @@ public class CustomerTest {
                 + "You owe 1.5\n"
                 + "On this rental you earned 1 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
@@ -84,7 +84,7 @@ public class CustomerTest {
                 + "You owe 3.0\n"
                 + "On this rental you earned 1 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }
@@ -118,7 +118,7 @@ public class CustomerTest {
                 +"You owe 19.0\n"
                 +"On this rental you earned 7 frequent renter points";
         //when
-        String statement = renter.statement();
+        String statement = renter.txtStatement();
         //then
         Assert.assertEquals(exceptedStatement,statement);
     }

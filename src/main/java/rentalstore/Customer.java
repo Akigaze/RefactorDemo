@@ -19,7 +19,7 @@ public class Customer {
         return name;
     }
 
-    public String statement(){
+    public String txtStatement(){
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
