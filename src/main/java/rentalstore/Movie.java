@@ -18,6 +18,11 @@ public class Movie {
         setPriceCode(code);
     }
 
+    public Movie(String title, Price priceCode) {
+        this.title = title;
+        this.priceCode=priceCode;
+    }
+
     public int getPriceCode() {
         return priceCode.getPriceCode();
     }
