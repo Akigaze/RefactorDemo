@@ -20,17 +20,34 @@ public class Customer {
     }
 
     public String txtStatement(){
+        return headerString()+ bodyString()+footerString();
+    }
 
+    private String footerString() {
+        return  "You owe " + String.valueOf(getCharge())
+                + "\nOn this rental you earned "
+                + String.valueOf(getTotalFrequentRenterPoints())
+                + " frequent renter points";
+
+    }
+
+    private String bodyString() {
+        StringBuffer info = new StringBuffer();
         Enumeration rentals = this.rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
         while(rentals.hasMoreElements()){
             Rental each = (Rental) rentals.nextElement();
-            result += "\t" + each.getMovie().getTitle() + ": " + String.valueOf(each.getAmount()) + "\n";
+            info.append( "\t"
+                    + each.getMovie().getTitle()
+                    + ": "
+                    + String.valueOf(each.getAmount())
+                    + "\n"
+            );
         }
+        return info.toString();
+    }
 
-        result += "You owe " + String.valueOf(getCharge()) + "\n";
-        result += "On this rental you earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
-        return result;
+    private String headerString() {
+        return "Rental Record for " + getName() + "\n";
     }
 
     private double getCharge(){
