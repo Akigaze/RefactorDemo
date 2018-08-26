@@ -18,7 +18,7 @@ public class CustomerTest {
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tA Journey to the West: 2.0\n"
                 + "You owe 2.0\n"
-                + "On this rental you earned 1 frequent renter points";
+                + "On this rental you earned 1.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -35,7 +35,7 @@ public class CustomerTest {
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tA Journey to the West: 5.0\n"
                 + "You owe 5.0\n"
-                + "On this rental you earned 1 frequent renter points";
+                + "On this rental you earned 1.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -52,7 +52,7 @@ public class CustomerTest {
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tDeath on the Nile: 9.0\n"
                 + "You owe 9.0\n"
-                + "On this rental you earned 2 frequent renter points";
+                + "On this rental you earned 2.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -69,7 +69,7 @@ public class CustomerTest {
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tPeppa Pig: 1.5\n"
                 + "You owe 1.5\n"
-                + "On this rental you earned 1 frequent renter points";
+                + "On this rental you earned 1.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -86,7 +86,7 @@ public class CustomerTest {
         String exceptedStatement = "Rental Record for Smith\n"
                 + "\tPeppa Pig: 3.0\n"
                 + "You owe 3.0\n"
-                + "On this rental you earned 1 frequent renter points";
+                + "On this rental you earned 1.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -120,7 +120,7 @@ public class CustomerTest {
                 +"\tDeath on the Nile: 6.0\n"
                 +"\tGG Bond: 6.0\n"
                 +"You owe 19.0\n"
-                +"On this rental you earned 7 frequent renter points";
+                +"On this rental you earned 7.0 frequent renter points";
         //when
         String statement = renter.txtStatement();
         //then
@@ -154,7 +154,7 @@ public class CustomerTest {
                 +"Death on the Nile: 6.0<br>"
                 +"GG Bond: 6.0<br>"
                 +"<p>You owe <em>19.0</em></p>"
-                +"<p>On this rental you earned <em>7</em> frequent renter points</p>";
+                +"<p>On this rental you earned <em>7.0</em> frequent renter points</p>";
         //when
         String statement = renter.htmlStatement();
         //then

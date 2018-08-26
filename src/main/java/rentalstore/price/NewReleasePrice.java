@@ -12,7 +12,7 @@ public class NewReleasePrice extends Price {
     }
 
     @Override
-    public int getFrequentRenterPoints(int dayRented) {
-        return (dayRented > 1) ? 2:super.getFrequentRenterPoints(dayRented);
+    public double getFrequentRenterPoints(int dayRented) {
+        return (dayRented > 1) ? 2.0:super.getFrequentRenterPoints(dayRented);
     }
 }
